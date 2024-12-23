@@ -1,0 +1,48 @@
+.container {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  min-width: 250px;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactLine {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.deleteCntBtn {
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  max-width: 150px;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.deleteCntBtn:hover {
+border: 1px solid red;
+color: red;
+}
+.deleteCntBtn:focus{
+  border: 1px solid red;
+  color: red;
+}
