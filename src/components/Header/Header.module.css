@@ -1,0 +1,38 @@
+.header{
+    height: 50px;
+    background-color: lightgray;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+}
+.headerName{
+    margin-right: auto;
+    padding: 0px;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+.navLinks{
+display: flex;
+gap: 15px;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+.links{
+    color:black;
+    padding: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+    &:hover{
+ text-decoration: underline;
+        transition: 0.5s ease;
+    }
+}
+.activeLink{
+    color: blue;
+}
