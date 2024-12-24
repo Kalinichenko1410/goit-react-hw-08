@@ -10,7 +10,7 @@ box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);;
         color: black;
 }
 .headerName{
-    margin-right: auto;
+    margin-right: 550px;
     padding: 0px;
     font-size: 25px;
     font-weight: bold;
@@ -36,3 +36,8 @@ padding: 0;
 .activeLink{
     color: blue;
 }
+.navItem{
+margin-right: 450px;
+
+}
+

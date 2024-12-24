@@ -8,3 +8,6 @@
 .container {
   padding: 16px;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

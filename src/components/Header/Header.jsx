@@ -10,11 +10,11 @@ const buildLinkClass = ({ isActive }) => {
 const Header = () => {
   return (
       <div className={s.header}>
-          <NavLink className={s.headerName} to="/">PhoneBook</NavLink>
+          <NavLink className={s.headerName} to="/">Home</NavLink>
           <ul className={s.navLinks}>  
-            <li className={s.navItems}><NavLink className={buildLinkClass} to="/">registeer</NavLink></li>  
-            <li className={s.navItems}><NavLink className={buildLinkClass} to="/">Login</NavLink></li>  
-          
+            <li className={s.navItem}><NavLink className={buildLinkClass} to="/contacts">Contacts</NavLink></li>  
+            <li className={s.navItems}><NavLink className={buildLinkClass} to="/register">Register</NavLink></li>  
+            <li className={s.navItems}><NavLink className={buildLinkClass} to="/login">Login</NavLink></li>  
           
         </ul>
     </div>
