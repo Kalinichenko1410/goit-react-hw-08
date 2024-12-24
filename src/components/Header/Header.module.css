@@ -1,43 +1,84 @@
-.header{
-    height: 50px;
+.header {
+    height: 55px;
     background-color: lightgray;
     padding: 10px 30px;
     display: flex;
     align-items: center;
-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);;
-        font-size: 20px;
-        font-weight: bold;
-        color: black;
+    justify-content: space-between;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
 }
-.headerName{
-    margin-right: 550px;
-    padding: 0px;
+
+.left {
+    flex: 1;
+}
+
+.center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.right {
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+}
+
+.headerName {
     font-size: 25px;
     font-weight: bold;
     color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.navLinks{
-display: flex;
-gap: 15px;
-list-style-type: none;
-margin: 0;
-padding: 0;
-}
-.links{
-    color:black;
-    padding: 10px;
-    transition: 0.5s ease;
-    cursor: pointer;
-    &:hover{
- text-decoration: underline;
-        transition: 0.5s ease;
-    }
-}
-.activeLink{
+
+.headerName:hover {
     color: blue;
 }
-.navItem{
-margin-right: 450px;
 
+.navLinks {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
+.navContacts {
+    margin-right: 15px;
+    /* Отступ справа для Contacts */
+}
+
+.links {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.links:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.activeLink {
+    color: blue;
+    font-weight: bold;
+}
+
+.btn {
+    color: black;
+    border: 1px solid;
+    background-color: lightgray;
+    max-height: 30px;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
