@@ -1,7 +1,20 @@
 import React from 'react';
 import s from './Login.module.css';
+import { Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/operations';
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const initialValues = {
+    email: '',
+    password: '',
+  };
+  const handleSubmit = (values, options) => {
+    console.log(values);
+    dispatch(login(values));
+    options.resetForm();
+  }
   return (
     <div className={s.loginHero}>
       <div className={s.loginHeroContent}>
@@ -12,26 +25,33 @@ const Login = () => {
           </p>
         </div>
         <div className={s.loginCard}>
-          <form className={s.loginForm}>
+        
+          <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+              <Form className={s.loginForm}>
             <div className={s.formGroup}>
               <label className={s.formLabel}>
                 <span>Email</span>
               </label>
-              <input type="email" placeholder="email" className={s.formInput} required />
+              <Field name="email" type="email" placeholder="email" className={s.formInput} required />
             </div>
             <div className={s.formGroup}>
               <label className={s.formLabel}>
                 <span>Password</span>
               </label>
-              <input type="password" placeholder="password" className={s.formInput} required />
+              <Field name="password" type="password" placeholder="password" className={s.formInput} required />
               <label className={s.formLabel}>
                 <a href="#" className={s.forgotPasswordLink}>Forgot password?</a>
               </label>
             </div>
             <div className={s.formActions}>
-              <button className={s.formButton}>Login</button>
+              <button type="submit" className={s.formButton} >Login</button>
             </div>
-          </form>
+          </Form>
+          </Formik>
+
+
+
+
         </div>
       </div>
     </div>

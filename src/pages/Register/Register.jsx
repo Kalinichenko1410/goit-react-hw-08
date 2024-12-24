@@ -1,7 +1,25 @@
 import React from 'react';
 import s from './Register.module.css';
+import { Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const Register = () => {
+
+const dispatch = useDispatch();
+
+const initialValues = {
+name: '',
+email: '',
+password: '',
+};
+  const handleSubmit = (values, options) => {
+    console.log(values);
+    dispatch(register(values)); 
+    options.resetForm();
+  };
+
+
   return (
     <div className={s.registerHero}>
       <div className={s.registerHeroContent}>
@@ -12,29 +30,38 @@ const Register = () => {
           </p>
         </div>
         <div className={s.registerCard}>
-          <form className={s.registerForm}>
+          
+
+
+          <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+              <Form className={s.registerForm}>
             <div className={s.formGroup}>
               <label className={s.formLabel}>
                 <span>Name</span>
               </label>
-              <input type="text" placeholder="Name" className={s.formInput} required />
+              <Field name="name" type="text" placeholder="Name" className={s.formInput} required />
             </div>
             <div className={s.formGroup}>
               <label className={s.formLabel}>
                 <span>Email</span>
               </label>
-              <input type="email" placeholder="Email" className={s.formInput} required />
+              <Field name="email" type="email" placeholder="Email" className={s.formInput} required />
             </div>
             <div className={s.formGroup}>
               <label className={s.formLabel}>
                 <span>Password</span>
               </label>
-              <input type="password" placeholder="Password" className={s.formInput} required />
+              <Field name="password" type="password" placeholder="Password" className={s.formInput} required />
             </div>
             <div className={s.formActions}>
-              <button className={s.formButton}>Register</button>
+              <button type='submit' className={s.formButton} >Register</button>
             </div>
-          </form>
+          </Form>
+        </Formik>
+
+
+
+
         </div>
       </div>
     </div>
