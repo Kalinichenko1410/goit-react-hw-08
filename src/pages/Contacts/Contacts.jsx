@@ -12,6 +12,7 @@ import { selectIsError, selectIsLoading } from '../../redux/contacts/selectors';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { refresh } from '../../redux/auth/operations';
 
 
 
@@ -25,15 +26,13 @@ const Contacts = () => {
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch]);
-  
+
   const isError = useSelector(selectIsError);
   const isLoading = useSelector(selectIsLoading);
 
   const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  if (!isLoggedIn) {
-return <Navigate to='/login' />
-  };
+
 
   return (
   <div className={s.container}> 

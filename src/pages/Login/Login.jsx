@@ -8,8 +8,6 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: '',
     password: '',
@@ -20,10 +18,7 @@ const Login = () => {
     options.resetForm();
   }
 
-  if (isLoggedIn) {
-return <Navigate to='/' />
-  }
-
+ 
 
   return (
     <div className={s.loginHero}>

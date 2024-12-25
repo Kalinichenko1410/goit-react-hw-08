@@ -3,10 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { goitApi } from "../auth/operations";
 
 
-
-
 export const fetchContacts = createAsyncThunk(
-  "contacts/fetchAll",
+  "contacts/get",
   async (_, thunkAPI) => {
     try {
       const { data } = await goitApi.get("/contacts");

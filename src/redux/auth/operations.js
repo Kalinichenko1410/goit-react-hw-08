@@ -35,4 +35,24 @@ try {
 } catch (error) {
     return thunkApi.rejectWithValue(error.message);
 }
+
 });
+
+export const refresh = createAsyncThunk('refresh', async (__, thunkApi) => { 
+    try {
+        const savedToken = thunkApi.getState().auth.token;    
+console.log(refresh);
+    if (!savedToken ) {
+        return thunkApi.rejectWithValue('Token does not exists');
+     }
+
+setAuthHeader(savedToken);
+
+    const { data } = await goitApi.get("/users/current");
+    return data;
+} catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+   
+}
+
+})
