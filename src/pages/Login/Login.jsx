@@ -3,8 +3,7 @@ import s from './Login.module.css';
 import { Field, Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
 
 const Login = () => {
   const dispatch = useDispatch();
