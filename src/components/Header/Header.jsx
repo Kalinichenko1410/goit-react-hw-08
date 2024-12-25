@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import s from './Header.module.css';
 import clsx from 'clsx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors';
+import { logout } from '../../redux/auth/operations';
 
 
 
@@ -11,6 +12,7 @@ const Header = () => {
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.links, isActive && s.activeLink);
 };
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
@@ -27,9 +29,7 @@ const buildLinkClass = ({ isActive }) => {
         <p>Welcome, {user.name}</p>
         </div> }
   <div className={s.right}>
-    <li className={s.navContacts}>
-      <NavLink className={buildLinkClass} to="/contacts">Contacts</NavLink>
-    </li>
+   
 
     {!isLoggedIn && (
       <ul className={s.navLinks}>
@@ -38,7 +38,12 @@ const buildLinkClass = ({ isActive }) => {
       </ul>
     )}
     
-    {isLoggedIn && <button className={s.btn}>Logout</button>}
+        {isLoggedIn && (<>
+     <li className={s.navContacts}>
+      <NavLink className={buildLinkClass} to="/contacts">Contacts</NavLink>
+    </li>
+     <button onClick={() => dispatch(logout())} className={s.btn}>Logout</button>
+    </>   )}
   </div>
 </div>
   )

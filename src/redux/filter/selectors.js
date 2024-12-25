@@ -1,0 +1,1 @@
+export { selectNameFilter } from "./slice";

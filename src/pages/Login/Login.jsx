@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Login.module.css';
 import { Field, Form, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: '',
     password: '',
@@ -15,6 +19,12 @@ const Login = () => {
     dispatch(login(values));
     options.resetForm();
   }
+
+  if (isLoggedIn) {
+return <Navigate to='/' />
+  }
+
+
   return (
     <div className={s.loginHero}>
       <div className={s.loginHeroContent}>
