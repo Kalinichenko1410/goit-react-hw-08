@@ -43,9 +43,7 @@ const Login = () => {
                 <span>Password</span>
               </label>
               <Field name="password" type="password" placeholder="password" className={s.formInput} required />
-              <label className={s.formLabel}>
-                <a href="#" className={s.forgotPasswordLink}>Forgot password?</a>
-              </label>
+           
             </div>
             <div className={s.formActions}>
               <button type="submit" className={s.formButton} >Login</button>
